@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hung Yen Economic Infrastructure - Regional Development Connections</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #d70202;
+            --light-yellow: #fff3b6;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.5;
+            background-color: #f5f5f5;
+        }
+        
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-red);
+            margin: 10px auto;
+        }
+        
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1rem;
+        }
+
+        /* Image and content layout */
+        .info-row {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .info-row img {
+            width: 40%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 16/8;
+        }
+
+        .info-content {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .info-content h3 {
+            color: var(--primary-red);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--primary-red);
+            padding-bottom: 5px;
+        }
+
+        .info-content p {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .info-row {
+                flex-direction: column;
+            }
+            
+            .info-row img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            flex: 1 1 120px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .gallery-item {
+            flex: 1 1 300px;
+            max-width: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/8;
+            object-fit: cover;
+        }
+
+        /* Footer styles */
+        .footer-content {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 30px 0 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            color: var(--light-yellow);
+            margin: 0 0 10px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--light-yellow);
+            padding-bottom: 8px;
+        }
+        
+        .footer-contact-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer-contact-item i {
+            margin-right: 6px;
+            color: var(--light-yellow);
+        }
+        
+        .rating-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .rating-option {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .rating-option input {
+            margin-right: 5px;
+        }
+        
+        .submit-btn {
+            background-color: white;
+            color: var(--primary-red);
+            border: none;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #b30000;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .social-icons {
+            margin: 15px 0 5px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.1rem;
+            margin: 0 8px;
+        }
+        
+        .iframe-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 520px;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .iframe-layer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top iframe -->
+    <div class="iframe-layer">
+        <iframe src="https://hungyengenzso.github.io/en/top"></iframe>
+    </div>
+        
+<script>
+function updatePadding() {
+  const screenWidth = window.innerWidth; 
+  const padding = screenWidth * 0.2; 
+  document.body.style.paddingTop = 50 + padding + "px";
+}
+
+window.addEventListener("load", updatePadding);
+window.addEventListener("resize", updatePadding);
+</script>
+    
+    <section id="overview">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-road"></i> NEW HUNG YEN ECONOMIC INFRASTRUCTURE</h2>
+            <p class="intro-text">New Hung Yen - formed from the merger of Hung Yen and Thai Binh - is strongly developing its economic infrastructure system</p>
+            
+            <!-- Transportation system -->
+            <div class="info-row">
+                <img src="https://cdn.thuviennhadat.vn//upload/hinh-anh-bai-viet/NHL/thnag-07-2025/28-07-2025/tuyen-thai-binh-hung-yen.jpg" alt="Transportation system">
+<div class="info-content">
+    <h3>Transportation System</h3>
+    <p>• Hung Yen has 60.9 km of modern highways, connecting with important traffic routes, enabling fast movement between economic centers and industrial zones.</p>
+    <p>• 151 km of national highways in the area have been upgraded and expanded, supporting goods transportation, agricultural products and promoting commercial activities in the province.</p>
+    <p>• 13 large bridges across rivers play a role in connecting areas within and outside the province.</p>
+</div>
+
+            </div>
+            
+            <!-- Port system -->
+            <div class="info-row">
+                <img src="https://i.ex-cdn.com/theleader.vn/files/f1/Upload_vn/nguyencanh/2021/8/25/cang%20can%20ICD%20minh%20hoa.jpg" alt="Port system">
+<div class="info-content">
+    <h3>Port System</h3>
+    <p>• Hung Yen has 11 large ports serving waterway cargo transportation, helping reduce road traffic pressure and supporting regional economic circulation.</p>
+    <p>• The province owns modern container ports, meeting large-scale cargo loading and transportation needs, with convenient connections to logistics centers.</p>
+    <p>• 15 industrial wharves have been built to serve production and import-export activities.</p>
+</div>
+
+            </div>
+            
+            <!-- Industrial infrastructure -->
+            <div class="info-row">
+                <img src="https://dulongip.vn/wp-content/uploads/2025/07/cac-khu-cong-nghiep-o-hung-yen.png" alt="Industrial infrastructure">
+<div class="info-content">
+    <h3>Industrial Infrastructure</h3>
+    <p>• Hung Yen currently has 7 concentrated industrial zones, planned modernly, attracting many domestic and foreign investors, creating momentum for local economic development.</p>
+    <p>• 15 medium and small industrial clusters have been built throughout districts, supporting production development.</p>
+    <p>• The province also owns a 500-hectare high-tech park, aiming to attract advanced technology projects and promote economic restructuring towards modernization.</p>
+</div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="stats" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-chart-pie"></i> KEY STATISTICS</h2>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">60.9km</div>
+                    <div class="stat-label">Highways</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">151km</div>
+                    <div class="stat-label">National highways</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Ports</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Wharves</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-hard-hat"></i> KEY PROJECTS</h2>
+            
+            <!-- Hung Yen - Thai Binh Expressway -->
+            <div class="info-row">
+                <img src="https://cafebiz.cafebizcdn.vn/162123310254002176/2025/2/27/anh-thum-1740643641917-1740643642469753801483.jpg" alt="Hung Yen - Thai Binh Expressway">
+<div class="info-content">
+    <h3>1. Hung Yen - Thai Binh Expressway</h3>
+    <p>• The Hung Yen - Thai Binh expressway is about 45 km long with 6 lanes, ensuring modern technical standards for high-speed traffic.</p>
+    <p>• This route connects directly with the Hanoi - Hai Phong expressway, helping to shorten travel time and enhance trade in the Red River Delta region.</p>
+    <p>• The project has a total investment of 12,000 billion VND, being one of the key infrastructure works.</p>
+</div>
+
+            </div>
+            
+            <!-- Thai Hung Bridge -->
+            <div class="info-row">
+                <img src="https://noichinh.vn/dataimages/202404/original/images732766_Hung_Yen.jpg" alt="Thai Hung Bridge">
+<div class="info-content">
+    <h3>2. Thai Hung Bridge</h3>
+    <p>• Thai Hung Bridge crosses the Red River with a length of about 3.2 km, modern design ensures safe and smooth traffic year-round.</p>
+    <p>• The project plays an important role in directly connecting Hung Yen and Thai Binh, contributing to promoting trade and regional economic development.</p>
+    <p>• The project has a total investment of about 3,500 billion VND.</p>
+</div>
+
+            </div>
+            
+            <!-- Eco-industrial Park -->
+            <div class="info-row">
+                <img src="https://media.tapchitaichinh.vn/w1480/images/upload/buituananh/08192021/xay-dung-ha-tang-khu-cong-nghiep-so-5-hung-yen-voi-tong-von-dau-tu-gan-2400-ty-dong-408-083425.jpg" alt="Eco-industrial Park">
+<div class="info-content">
+    <h3>3. Eco-Industrial Park</h3>
+    <p>• The 300-hectare eco-industrial park in Tien Lu is synchronously planned, creating production development space associated with environmental protection.</p>
+    <p>• This area prioritizes attracting clean industrial projects, high technology, limiting negative impacts on local ecosystems.</p>
+    <p>• The centralized wastewater treatment system is built modernly, ensuring safety standards.</p>
+</div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="leader" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> PROVINCIAL LEADERS' DIRECTION</h2>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://mediabhy.mediatech.vn/upload/image/202308/medium/57491_cac_dai_bieu_du_phien_hop_tai_diem_cau_hung_yen_14535602.jpg" alt="Provincial leaders inspecting bridge project">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://bcp.cdnchinhphu.vn/350555282988298240/2025/3/14/1h5a1619-17419478466231193733642.jpg" alt="Provincial leaders visiting construction site">
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <img src="https://noichinh.vn/dataimages/202404/original/images732766_Hung_Yen.jpg" alt="Provincial leaders inspecting project">
+<div class="info-content">
+    <h3>Direction Activities</h3>
+    <p>• Regularly organize inspections of expressway construction progress, ensuring project quality and completion according to plan.</p>
+    <p>• Actively coordinate and work with the Ministry of Transport to resolve obstacles and accelerate progress of important infrastructure projects.</p>
+    <p>• Conduct field surveys at key projects.</p>
+</div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>CONTACT INFORMATION & FEEDBACK</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Hotline: 0977893086</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: Dothoinn@gmail.com</span>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <div style="margin-bottom: 8px;">Website rating:</div>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="good" name="rating" value="good" checked>
+                                <label for="good">Good</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="average" name="rating" value="average">
+                                <label for="average">Average</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="poor" name="rating" value="poor">
+                                <label for="poor">Poor</label>
+                            </div>
+                        </div>
+                        <button type="button" class="submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>NEW HUNG YEN</h3>
+                    <p>Electronic information portal introducing Hung Yen province after merging with Thai Binh</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        &copy; 2025 Copyright belongs to Trung Vuong High School
+    </div>
+    
+    <script>
+        function submitFeedback() {
+            const rating = document.querySelector('input[name="rating"]:checked').value;
+            alert(`Thank you for rating our website as "${getRatingText(rating)}"!`);
+            return false;
+        }
+        
+        function getRatingText(value) {
+            switch(value) {
+                case 'good': return 'Good';
+                case 'average': return 'Average';
+                case 'poor': return 'Poor';
+                default: return '';
+            }
+        }
+    </script>
+</body>
+</html>

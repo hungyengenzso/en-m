@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div style="text-align: center;">
+    <img src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/539248753_791097143309204_1847995086961940414_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=W2vwzm1dpD8Q7kNvwFXGbLW&_nc_oc=AdlUaMb2kaoTVdiGF0Q3EFfT_3do1Sya2GXumQL3rjirYyeWqKmYhmPahNtDwltAsEO_rSPi7bA-V8p6R3jbBH0M&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=ujH5qjXiKsLwhPCo_TieHA&oh=00_AfUzOiUSS3zithD_07ai5jd1lGj3BrbqwfXs2cHShXAz2g&oe=68B5198F " alt="Group">
+    </div>
+    <title>Introduction to New Hung Yen Province</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #d70202;
+            --light-yellow: #fff3b6;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding-top: 140px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--light-yellow);
+            color: var(--primary-red);
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            position: relative;
+            font-size: 1.4rem;
+        }
+        
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-red);
+            margin: 10px auto;
+        }
+        
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1rem;
+        }
+
+        .sub-section-title {
+            text-align: center;
+            color: var(--primary-red);
+            margin: 30px 0 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* === BOX LAYOUT === */
+        .info-row {
+            display: flex;
+            align-items: stretch;
+            background-color: var(--light-yellow);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .info-row img {
+            width: 40%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 16/8;
+        }
+
+        .info-content {
+            padding: 15px 20px;
+            flex: 1;
+        }
+
+        .info-content h3 {
+            color: var(--primary-red);
+            margin-top: 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--primary-red);
+            padding-bottom: 6px;
+        }
+
+        /* Map image - NO fixed aspect ratio */
+        .map-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .info-row {
+                flex-direction: column;
+            }
+
+            .info-row img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/8;
+            }
+        }
+        /* === END BOX === */
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            flex: 0 1 calc(50% - 5px);
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            aspect-ratio: 16/8;
+            transition: transform 0.4s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Stats section */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            flex: 1 1 120px;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+        }
+        
+        /* Footer styles */
+        .footer-content {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 20px 0 10px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            color: var(--light-yellow);
+            margin-top: 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--light-yellow);
+            padding-bottom: 8px;
+        }
+        
+        .contact-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .contact-item i {
+            margin-right: 6px;
+            color: var(--light-yellow);
+            font-size: 0.9rem;
+        }
+        
+        .rating-options {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .rating-option {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .rating-option input {
+            margin-right: 4px;
+        }
+        
+        .submit-btn {
+            background-color: white;
+            color: var(--primary-red);
+            border: none;
+            padding: 5px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 10px 0;
+            background-color: var(--primary-red);
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .social-icons {
+            margin: 10px 0 5px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.1rem;
+            margin: 0 6px;
+            transition: color 0.3s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            section {
+                padding: 20px 0;
+            }
+            
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .gallery-item {
+                flex: 0 1 auto;
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .footer-section {
+                flex: 0 0 100%;
+            }
+        }
+    .iframe-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 520px;
+        z-index: 9999;
+        pointer-events: none;
+    }
+
+    .iframe-layer iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        pointer-events: auto;
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Top iframe layer -->
+    <div class="iframe-layer">
+        <iframe src="https://hungyengenzso.github.io/en/top"></iframe>
+    </div>
+        
+<script>
+function updatePadding() {
+  const screenWidth = window.innerWidth; 
+  const padding = screenWidth * 0.2; 
+  document.body.style.paddingTop = 50 + padding + "px";
+}
+
+window.addEventListener("load", updatePadding);
+window.addEventListener("resize", updatePadding);
+</script>
+    
+    <section id="history">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-landmark"></i> HISTORY BEFORE MERGER</h2>
+            <p class="intro-text">North Hung Yen and South Hung Yen - Two regions rich in cultural and historical traditions of the Red River Delta</p>
+            
+            <div class="info-row">
+                <img src="https://mediabhy.mediatech.vn/upload/image/202202/medium/47671_35_20220203085954.jpg" alt="Early period">
+                <div class="info-content">
+                    <h3>Early Period</h3>
+                    <p>North Hung Yen was once a prosperous commercial center with the famous Pho Hien "Second only to the Imperial Capital". This area developed early as an important trading hub of the Northern Delta. Meanwhile, South Hung Yen had a long agricultural tradition, known as the rice granary of the North. This fertile alluvial land has nourished generations of people with its endless rice fields.</p>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <img src="https://i.ytimg.com/vi/8Da7_64ThaY/maxresdefault.jpg" alt="19th-20th century">
+                <div class="info-content">
+                    <h3>19th-20th Century</h3>
+                    <p>North Hung Yen flourished with traditional craft villages like ceramics, wood carving, and bronze casting with sophisticated techniques. Many handicrafts from here became famous brands domestically and internationally. During the same period, South Hung Yen became one of the leading regions in food production with a solid dyke system. Local people effectively utilized the fertile alluvial land and developed modern irrigation systems for agriculture.</p>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <img src="https://banggiadatnen.com/wp-content/uploads/2021/11/van-phong-cong-chung-tai-bac-giang.jpg" alt="Year 2025">
+                <div class="info-content">
+                    <h3>Year 2025</h3>
+                    <p>The decision to merge North Hung Yen and South Hung Yen was approved, creating the new Hung Yen province with expanded area and multi-sector development potential. This historic event marked an important milestone in the development of both regions. With the merger, New Hung Yen will have advantages in both industry, commerce and agriculture, forming a strong unified entity economically and culturally.</p>
+                </div>
+            </div>
+
+            <h3 class="sub-section-title">ABOUT HUNG YEN</h3>
+            
+            <div class="info-row">
+                <img src="https://sanvemaybay.vn/includes/uploads/2019/12/Ch%C3%B9a-Chu%C3%B4ng-e1575444978391.jpg" alt="North Hung Yen heritage">
+                <div class="info-content">
+                    <h3>North Hung Yen Heritage</h3>
+                    <p>North Hung Yen boasts over 1,200 historical-cultural relics, including 180 nationally ranked sites. Most notably the Pho Hien relic complex with unique architecture, Chuong Pagoda - an ancient pagoda with distinctive Le dynasty architecture, and Mother Temple - a sacred worship site attracting thousands of visitors annually. Additionally, this area preserves many intangible cultural heritages like cheo singing, ca tru performances, and traditional festivals embodying Northern Delta cultural identity.</p>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <img src="https://phapluat.tuoitrethudo.vn/stores/news_dataimages/nguyenducminh/022023/06/20/0913_0d375431eb3003a799b853f63e21d70fanh-1--cong-den-tien-la-ok.jpg?rt=20230206201022" alt="South Hung Yen heritage">
+                <div class="info-content">
+                    <h3>South Hung Yen Heritage</h3>
+                    <p>South Hung Yen proudly preserves over 2,000 historical-cultural relics and unique festivals embodying Red River Delta identity. Most famous is the centuries-old buffalo fighting festival, melodious cheo singing, and unique water puppetry. This area also maintains distinctive culinary heritage like banh cay, banh gai, and fresh seafood dishes. Traditional craft villages like mat weaving, conical hat making, and bamboo weaving are also characteristic cultural features of South Hung Yen.</p>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <img src="https://dntt.mediacdn.vn/197608888129458176/2024/3/20/z52670357555975a8ecd6b9337c40df1f8d450bb1ff30b-1710917021803421912707.jpg" alt="Shared culture">
+                <div class="info-content">
+                    <h3>Shared Culture</h3>
+                    <p>Both North and South Hung Yen belong to the Red River Delta cultural region, sharing many customs, traditions and folk beliefs. People from both regions share traditions of studiousness, hard work and agricultural livelihoods. Cultural values like ancestor worship, honoring national contributors, and community solidarity are all preserved and promoted. After the merger, these cultural values will harmoniously combine, creating the unique identity of New Hung Yen - a region preserving tradition while developing modernity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="after-merge" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> NEW HUNG YEN AFTER MERGER</h2>
+            <p class="intro-text">Impressive statistics and new administrative map of Hung Yen province after the merger</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">2,515 km²</div>
+                    <div class="stat-label">Total area</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3,567,943</div>
+                    <div class="stat-label">Population</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">104</div>
+                    <div class="stat-label">Communes/wards</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+35%</div>
+                    <div class="stat-label">Expected GDP growth</div>
+                </div>
+            </div>
+            
+            <!-- Map image WITHOUT fixed aspect ratio -->
+            <img src="https://xdcs.cdnchinhphu.vn/446259493575335936/2025/6/22/hungyen-1750601173365825110197.jpg" 
+                 alt="New Hung Yen map" 
+                 class="map-image">
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/pqoJQswovIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="info-row">
+                <img src="https://thiennhienmoitruong.vn/upload/images/btv/bvt8/btv8.1.4/bvt1.4b/2272-img-0254-ae70f76bbb48c0d19db3e364f602f528-20220907180957.jpg" alt="Strategic location">
+                <div class="info-content">
+                    <h3>Strategic Location</h3>
+                    <p>New Hung Yen is located in the center of the Red River Delta, bordering Hanoi to the north, Hai Duong to the east, Hai Phong to the southeast and Nam Dinh to the southwest. This is an important gateway to the East Sea with convenient transportation systems. This special geographical position makes New Hung Yen an important transit point in the trading network of the Northern Delta, while serving as a bridge between Hanoi and coastal provinces.</p>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <img src="https://mekongasean.vn/stores/news_dataimages/mekongaseanvn/072023/22/22/hy8-6575.jpg" alt="Natural resources">
+                <div class="info-content">
+                    <h3>Natural Resources</h3>
+                    <p>New Hung Yen possesses abundant natural resources with fertile land enriched by Red River alluvium, dense river systems (Red River, Luoc River, Tra Ly River) providing ample water for agricultural production and aquaculture. Particularly, with a long coastline from former South Hung Yen, the province has great potential for marine economic development. Additionally, this area has diverse mineral resources like lignite, brick clay, construction sand... creating favorable conditions for industrial development.</p>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <img src="https://mediabhy.mediatech.vn/upload/image/202410/medium/76699_san_xuat_tai_cong_ty_co_phan_may_va_dich_vu_hung_long_thi_xa_my_hao_18174323.jpg" alt="Transport infrastructure">
+                <div class="info-content">
+                    <h3>Transport Infrastructure</h3>
+                    <p>New Hung Yen has invested in synchronized and modern transportation infrastructure. The road network includes key national highways like 5, 10, 39 connecting neighboring provinces; Hanoi-Hai Phong expressway reduces travel time. The waterway system develops with important river ports along Red River and Luoc River. Particularly, the deep-water port in former South Hung Yen can accommodate large ships, opening opportunities for logistics and international trade. In the future, the province will continue investing in transportation upgrades to become an important logistics center of the region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="vision">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-bullseye"></i> DEVELOPMENT VISION</h2>
+            <p class="intro-text">Development orientation for New Hung Yen province until 2030 and vision to 2045</p>
+            
+            <div class="info-row">
+                <img src="https://cdn.nhandan.vn/images/22f099ca8bc7ae81aa2a8d3416a84bf84c698a89ddb531631197c552ad8b949c57832c63210f5cf8a99a9a083dbfab6cc30f4af8241d2ca2041cef91173b1738/q9-487.jpg.webp" alt="Economy">
+                <div class="info-content">
+                    <h3>Economy</h3>
+                    <p>New Hung Yen will develop multi-sectorally focusing on high-tech agriculture applying scientific advances; high-quality agricultural product and food processing; modern logistics systems serving trade; eco-cultural tourism combining potentials from both North and South Hung Yen. The province will build concentrated industrial zones with synchronized infrastructure, attracting domestic and foreign investment. Particularly, an innovation center will be established to promote startups and technology application in production. By 2030, New Hung Yen aims to become one of the important economic centers of the Red River Delta.</p>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <img src="https://mediabhy.mediatech.vn/upload/image/202303/medium/50407_van_mieu_20230302155139.jpg" alt="Infrastructure">
+                <div class="info-content">
+                    <h3>Infrastructure</h3>
+                    <p>The province will focus on synchronized infrastructure investment with key projects: completing inter-regional transportation networks; building smart cities applying Industry 4.0 technologies in management; developing digital infrastructure with high-speed internet coverage; upgrading electricity and clean water systems meeting development needs. Satellite towns will be scientifically planned to effectively connect with Hanoi and Hai Phong, forming a dynamic urban chain of the region. Medical and educational infrastructure will also be prioritized to improve living standards. By 2045, New Hung Yen aims to have modern infrastructure on par with regional standards.</p>
+                </div>
+            </div>
+            
+            <div class="info-row">
+                <img src="https://mediabhy.mediatech.vn/upload/image/202202/medium/47671_35_20220203085954.jpg" alt="Culture - Society">
+                <div class="info-content">
+                    <h3>Culture - Society</h3>
+                    <p>New Hung Yen will preserve and promote heritage values from both North and South Hung Yen, creating distinctive cultural identity. The province will develop high-quality education with national standard schools, modern vocational training centers. Healthcare will be intensively invested with international standard provincial hospitals, comprehensively upgraded grassroots health systems. People's lives will significantly improve through social welfare policies, job support, housing. Community culture will be emphasized to strengthen bonds between people of both regions, building the image of New Hung Yen - a united, dynamic and identity-rich community.</p>
+                </div>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/yhTDzC7rrmI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <section id="gallery" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-camera"></i> IMAGES OF NEW HUNG YEN</h2>
+            <p class="intro-text">Beautiful images of people, landscapes and life in New Hung Yen province</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://scontent.iocvnpt.com/resources/portal/Images/TBH/ttxuctien/ck6_606095991.jpg" alt="New Hung Yen">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/V%C4%83n_mi%E1%BA%BFu_X%C3%ADch_%C4%90%E1%BA%B1ng_02.JPG/1200px-V%C4%83n_mi%E1%BA%BFu_X%C3%ADch_%C4%90%E1%BA%B1ng_02.JPG" alt="New Hung Yen">
+                </div>
+            </div>
+            
+            <div class="view-more">
+                <a href="https://hungyengenzso.github.io/en/anh" class="btn"><i class="fas fa-images"></i> View more images</a>
+            </div>
+        </div>
+    </section>
+    
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>CONTACT & FEEDBACK</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Hotline: 0977893086</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: Dothoinn@gmail.com</span>
+                    </div>
+                    
+                    <div style="margin-top: 10px;">
+                        <div style="margin-bottom: 5px;">Rate our website:</div>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="good" name="rating" value="good" checked>
+                                <label for="good">Good</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="average" name="rating" value="average">
+                                <label for="average">Average</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="poor" name="rating" value="poor">
+                                <label for="poor">Poor</label>
+                            </div>
+                        </div>
+                        <button type="button" class="submit-btn" onclick="submitFeedback()">Submit</button>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>NEW HUNG YEN</h3>
+                    <p>Official website introducing Hung Yen province after merging North Hung Yen and South Hung Yen regions</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        &copy; 2025 Copyright belongs to Trung Vuong High School
+    </div>
+    
+    <script>
+        function submitFeedback() {
+            const rating = document.querySelector('input[name="rating"]:checked').value;
+            alert(`Thank you for rating our website as "${getRatingText(rating)}"!`);
+            return false;
+        }
+        
+        function getRatingText(value) {
+            switch(value) {
+                case 'good': return 'Good';
+                case 'average': return 'Average';
+                case 'poor': return 'Poor';
+                default: return '';
+            }
+        }
+    </script>
+</body>
+</html>

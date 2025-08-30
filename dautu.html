@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment & Industries in New Hung Yen - Sustainable Development Opportunities</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #d70202;
+            --light-yellow: #fff3b6;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--light-yellow);
+            color: var(--primary-red);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--primary-red);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-red);
+            margin: 15px auto;
+        }
+        
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Image and content layout */
+        .info-row {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-row img {
+            width: 40%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 16/9;
+        }
+
+        .info-content {
+            padding: 25px;
+            flex: 1;
+        }
+
+        .info-content h3 {
+            color: var(--primary-red);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 10px;
+        }
+
+        .info-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            flex: 0 1 calc(50% - 15px);
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin: 20px;
+            flex: 1 1 200px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+        }
+
+        .vision-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+        
+        .vision-card {
+            flex: 1 1 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .vision-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .vision-card h3 {
+            color: var(--primary-red);
+            border-bottom: 2px solid var(--light-yellow);
+            padding-bottom: 10px;
+        }
+
+        /* Footer styles */
+        .footer-content {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            color: var(--light-yellow);
+            margin: 0 0 15px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--light-yellow);
+            padding-bottom: 10px;
+        }
+        
+        .footer-contact-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+        
+        .footer-contact-item i {
+            margin-right: 8px;
+            color: var(--light-yellow);
+        }
+        
+        .rating-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .rating-option {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+        
+        .rating-option input {
+            margin-right: 5px;
+        }
+        
+        .submit-btn {
+            background-color: white;
+            color: var(--primary-red);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #b30000;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .social-icons {
+            margin: 20px 0 10px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.3rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--light-yellow);
+        }
+        
+        .iframe-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 520px;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .iframe-layer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            pointer-events: auto;
+        }
+
+        @media (max-width: 768px) {
+            .info-row {
+                flex-direction: column;
+            }
+            
+            .info-row img {
+                width: 100%;
+                height: auto;
+            }
+            
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gallery-item {
+                flex: 0 1 auto;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .footer-section {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top iframe -->
+    <div class="iframe-layer">
+        <iframe src="https://hungyengenzso.github.io/en/top"></iframe>
+    </div>
+        
+<script>
+function updatePadding() {
+  const screenWidth = window.innerWidth; 
+  const padding = screenWidth * 0.2; 
+  document.body.style.paddingTop = padding + "px";
+}
+
+window.addEventListener("load", updatePadding);
+window.addEventListener("resize", updatePadding);
+</script>
+    
+    <section id="overview">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> INVESTMENT & INDUSTRIES IN NEW HUNG YEN</h2>
+            <p class="intro-text">New Hung Yen - formed from the merger of Hung Yen and Thai Binh - offers diverse investment opportunities with strengths in high-tech agriculture, processing industry, and logistics services.</p>
+            
+            <!-- Key Industries -->
+            <div class="info-row">
+                <img src="https://lh6.googleusercontent.com/proxy/n8qEOeEd68KtO_QqswdExZVgPdoXkR-5aG4E9BltCGP3tog5SUfIPqGE5C0TRzePngroCdQMJuWzKRSx5R_uDw" alt="Key industries of Hung Yen">
+<div class="info-content">
+    <h3>Key Industries of New Hung Yen</h3>
+    <p>New Hung Yen has advantages in high-tech agriculture with rice, seafood and safe vegetables, applying Industry 4.0 technology to meet export standards.</p>
+    <p>The agricultural and aquatic product processing industry and supporting mechanical engineering are strongly developed, creating a supply chain from raw materials to finished products for industrial zones in the region.</p>
+</div>
+
+            </div>
+            
+            <!-- Key Industrial Zones -->
+            <div class="info-row">
+                <img src="https://media.vietnamplus.vn/images/7255a701687d11cb8c6bbc58a6c8078596da2a719f0acb59c5c73d78ee3f60518bfcbb18005a707216da5fdba198ef7e93dbd269dad4ec7a7facf2ecd94fe1c8/thai_binh_han_quoc_2.jpg" alt="Hung Yen industrial zones">
+<div class="info-content">
+    <h3>Key Industrial Zone System</h3>
+    <p>Pho Noi A Industrial Zone (500ha) is the largest center of New Hung Yen, focusing on processing, manufacturing and logistics industries with synchronous infrastructure.</p>
+    <p>Thang Long II (334ha) and Dong Van (200ha) specialize in textiles, garments and footwear, attracting many Japanese and Korean investors, creating jobs for tens of thousands of workers.</p>
+</div>
+
+            </div>
+            
+            <!-- Investment Incentives -->
+            <div class="info-row">
+                <img src="https://noichinh.vn/dataimages/202404/original/images732766_Hung_Yen.jpg" alt="Hung Yen investment incentives">
+                <div class="info-content">
+    <h3>Attractive Investment Incentives</h3>
+    <p>New Hung Yen offers 4-year corporate income tax exemption and 50% reduction for the next 9 years for priority projects, along with 30% support for high-tech infrastructure costs.</p>
+    <p>The "one-stop" mechanism reduces licensing time to 15 days, with the Business Support Center providing comprehensive advice from registration to project implementation.</p>
+</div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="stats" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-chart-pie"></i> OUTSTANDING INVESTMENT INDICATORS</h2>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Industrial Zones</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">2.5+</div>
+                    <div class="stat-label">Billion USD FDI</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Investment Projects</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">50k+</div>
+                    <div class="stat-label">High-quality Workers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-project-diagram"></i> TYPICAL INVESTMENT OPPORTUNITIES</h2>
+            
+            <div class="vision-cards">
+                <div class="vision-card">
+                    <h3>1. Multimodal Logistics Center</h3>
+                    <p>Strategically located near Pho Noi port with an area of 100ha and total investment of 300 million USD, the project promises to become the largest goods distribution center in the Red River Delta region. The center will effectively connect the highway system, inland waterways and international sea routes, reducing logistics costs for businesses.</p>
+                    <p>The project enjoys special incentives on equipment import tax and long-term corporate income tax exemptions. The province commits maximum support in approval procedures and provision of high-quality human resources trained in modern supply chain management.</p>
+                    <p>The center will include smart warehouses, cold distribution centers for agricultural products, and packaging and processing areas for export goods. This is a golden opportunity for investors in transportation, warehousing and logistics services looking to expand operations in Northern Vietnam.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <h3>2. High-Tech Agricultural Zone</h3>
+                    <p>With a scale of 200ha in Tien Hai, the high-tech agricultural zone focuses on applying biotechnology solutions, smart irrigation systems and organic farming. The project receives 30% infrastructure investment support from the provincial budget along with many tax and land incentives.</p>
+                    <p>This area will be a place to test and replicate new plant varieties with high productivity and quality, suitable for climate change. Participating businesses have access to preferential capital from the High-Tech Agricultural Development Fund and are supported in connecting with stable consumption markets.</p>
+                    <p>The project aims to build a closed value chain from production to processing and consumption, applying blockchain technology in traceability. This is a model of smart, sustainable agriculture, bringing 3-5 times higher economic efficiency than traditional cultivation.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <h3>3. Seafood Processing Plant</h3>
+                    <p>A seafood processing plant with a capacity of 50,000 tons/year and total investment of 50 million USD targets premium markets such as the EU, Japan and Korea. The project benefits from abundant local raw materials with high quality, meeting the most stringent food safety standards.</p>
+                    <p>The plant will apply modern processing technology according to HACCP, ISO 22000 standards with highly automated production lines. The province commits to support businesses in trade promotion, connecting with reputable import partners and participating in international specialized fairs.</p>
+                    <p>The project creates about 1,500 direct jobs and thousands of indirect jobs for local fishermen. This is an attractive investment opportunity in the context of increasing global demand for high-quality seafood, especially from markets with free trade agreements with Vietnam.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <h3>4. Smart Urban Area</h3>
+                    <p>The 150ha smart urban area in New Hung Yen city is a key project for sustainable urban development, integrating modern utilities such as administrative centers, international education and multi-specialty hospitals meeting international standards. The project applies Industry 4.0 solutions in urban management and public service provision.</p>
+                    <p>The urban area is planned synchronously with smart technical infrastructure systems, green spaces accounting for 40% of the area and energy-saving standards. This will be an ideal living and working place for the community of experts, foreign investors and the growing middle class in the region.</p>
+                    <p>The project enjoys many fee and charge incentives, with quick approval procedures under special mechanisms. This is an attractive long-term investment opportunity in the context of strong growth in demand for quality housing and workspace in Hung Yen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="leader" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-handshake"></i> INVESTMENT SUPPORT</h2>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://bcp.cdnchinhphu.vn/350555282988298240/2025/3/14/1h5a1619-17419478466231193733642.jpg" alt="Provincial leaders working with investors">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://mediabhy.mediatech.vn/upload/image/202308/medium/57491_cac_dai_bieu_du_phien_hop_tai_diem_cau_hung_yen_14535602.jpg" alt="Investment cooperation signing">
+                </div>
+            </div>
+            
+            <!-- Investor support services -->
+            <div class="info-row">
+                <img src="https://noichinh.vn/dataimages/202404/original/images732766_Hung_Yen.jpg" alt="Investor support">
+                <div class="info-content">
+                    <h3>Comprehensive Support Services for Investors</h3>
+                    <p>New Hung Yen established a Business Support Center with a team of experienced experts, providing comprehensive legal advisory services from the investment registration stage.</p>
+                    <p>The province implements a "one-stop interconnected" mechanism in administrative procedures with processing time reduced by 50% compared to general regulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>CONTACT INFORMATION & FEEDBACK</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Hotline: 0977893086</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: Dothoinn@gmail.com</span>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <div style="margin-bottom: 10px;">Website rating:</div>
+                        <div class="rating-options">
+                            <div class="rating-option">
+                                <input type="radio" id="good" name="rating" value="good" checked>
+                                <label for="good">Good</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="average" name="rating" value="average">
+                                <label for="average">Average</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="poor" name="rating" value="poor">
+                                <label for="poor">Poor</label>
+                            </div>
+                        </div>
+                        <button type="button" class="submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>NEW HUNG YEN</h3>
+                    <p>Electronic information portal introducing Hung Yen province after merging with Thai Binh</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        &copy; 2025 Copyright belongs to Trung Vuong High School
+    </div>
+    
+    <script>
+        function submitFeedback() {
+            const rating = document.querySelector('input[name="rating"]:checked').value;
+            alert(`Thank you for rating our website as "${getRatingText(rating)}"!`);
+            return false;
+        }
+        
+        function getRatingText(value) {
+            switch(value) {
+                case 'good': return 'Good';
+                case 'average': return 'Average';
+                case 'poor': return 'Poor';
+                default: return '';
+            }
+        }
+    </script>
+</body>
+</html>

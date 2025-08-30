@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hung Yen Province E-Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .header {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .header img {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+    .header img.active {
+      display: block;
+    }
+
+    nav {
+      background: #0066cc;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      position: relative;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex: 1;
+      margin: 0;
+      padding-left: 0;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      display: block;
+      padding: 15px 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold !important;
+    }
+    nav ul li:hover {
+      background: #004c99;
+    }
+
+    /* Submenu */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background: #0066cc;
+      min-width: 200px;
+      z-index: 100;
+      flex-direction: column;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul li ul li a {
+      font-weight: normal;
+      padding: 10px 15px;
+    }
+
+    /* Right section */
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Hidden search bar */
+    .search-box {
+      position: relative;
+      display: none;
+    }
+    .search-box input {
+      padding: 6px 10px;
+      border-radius: 3px;
+      border: none;
+    }
+
+    /* Suggestions */
+    .suggestions {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: white;
+      border: 1px solid #ccc;
+      width: 200px;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+      z-index: 200;
+    }
+    .suggestion-item {
+      padding: 6px 10px;
+      cursor: pointer;
+      color: black;
+    }
+    .suggestion-item:hover {
+      background: #f0f0f0;
+    }
+
+    .flags img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      border: 1px solid #fff;
+    }
+
+    /* Bottom banner */
+    .banner {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner a {
+      display: block;
+      width: 100%;
+    }
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+    .banner img.active {
+      display: block;
+    }
+
+    /* Responsive */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        background: #0066cc;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+        color: white;
+      }
+      .right-section {
+        margin-left: auto;
+      }
+    }
+  </style>
+<script>
+    // Send actual page height to parent page
+    function sendHeightToParent() {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ height: height }, '*');
+    }
+
+    // Send height when page finishes loading
+    window.addEventListener('load', sendHeightToParent);
+
+    // Monitor height changes (for dynamic pages)
+    let lastHeight = 0;
+    function checkHeightChange() {
+        const currentHeight = document.body.scrollHeight;
+        if (currentHeight !== lastHeight) {
+            lastHeight = currentHeight;
+            sendHeightToParent();
+        }
+        requestAnimationFrame(checkHeightChange);
+    }
+    checkHeightChange();
+</script>
+</head>
+<body>
+
+  <!-- Top banner (slider without cropping) -->
+  <div class="header">
+    <img src="https://hungyengenzso.github.io/en/DU%20L%E1%BB%8ACH%20V%C3%80%20DI%20S%E1%BA%A2N%20(10).png" class="active">
+    <img src="https://hungyengenzso.github.io/en/DU%20L%E1%BB%8ACH%20V%C3%80%20DI%20S%E1%BA%A2N%20(11).png">
+    <img src="https://hungyengenzso.github.io/en/DU%20L%E1%BB%8ACH%20V%C3%80%20DI%20S%E1%BA%A2N%20(12).png">
+  </div>
+
+  <!-- Menu -->
+  <nav>
+    <span class="menu-toggle"><i class="fa-solid fa-bars"></i></span>
+    <ul>
+      <li><a href="https://hungyengenzso.github.io/en/home" target="_blank"><i class="fa fa-home"></i></a></li>
+      <li>
+        <a href="javascript:void(0)">Overview</a>
+        <ul>
+          <li><a href="https://hungyengenzso.github.io/en/gioithieu" target="_blank">Introduction</a></li>
+          <li><a href="https://hungyengenzso.github.io/en/nhanvat" target="_blank">Senior leaders of Hung Yen</a></li>
+          <li><a href="https://hungyengenzso.github.io/en/thuvienmedia" target="_blank">Media Library</a></li>
+        </ul>
+      </li>
+      <li><a href="https://hungyengenzso.github.io/en/kinhte" target="_blank">Economy</a></li>
+      <li><a href="https://hungyengenzso.github.io/en/dulich" target="_blank">Tourism</a></li>
+      <li><a href="https://hungyengenzso.github.io/en/dsvls" target="_blank">Heritage & History</a></li>
+      <li><a href="https://hungyengenzso.github.io/en/atvln" target="_blank">Cuisine & Craft Villages</a></li>
+      <li><a href="https://hungyengenzso.github.io/en/minigame" target="_blank">MiniGame</a></li>
+      <li><a href="https://hungyengenzso.github.io/en/amnhac" target="_blank">Music</a></li>
+      <li><a href="https://hungyengenzso.github.io/en/lienhe" target="_blank">Contact</a></li>
+    </ul>
+
+    <div class="right-section">
+      <i class="fas fa-search" id="search-icon" style="cursor:pointer;"></i>
+      <div class="search-box" id="search-box">
+        <input type="text" id="search" placeholder="Search...">
+        <div id="suggestions" class="suggestions"></div>
+      </div>
+      <div class="flags">
+        <img src="https://hungyengenzso.github.io/en/vn.png" alt="VN">
+        <img src="https://hungyengenzso.github.io/en/en.png" alt="EN">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bottom banner - Updated with rotating banners -->
+  <div class="banner">
+    <a href="https://hungyengenzso.github.io/dangbai/post.html" target="_blank" id="banner-link">
+      <img src="https://hungyengenzso.github.io/en/BAONEW.png" alt="Banner" class="active" id="banner1">
+      <img src="https://hungyengenzso.github.io/en/BAONEW2.png" alt="Banner" id="banner2">
+    </a>
+  </div>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Banner image rotation JS -->
+  <script>
+    // Top banner rotation
+    const images = document.querySelectorAll('.header img');
+    let current = 0;
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 5000);
+
+    // Bottom banner rotation
+    const banner1 = document.getElementById('banner1');
+    const banner2 = document.getElementById('banner2');
+    const bannerLink = document.getElementById('banner-link');
+    let bannerActive = 1;
+    
+    setInterval(() => {
+      if (bannerActive === 1) {
+        banner1.classList.remove('active');
+        banner2.classList.add('active');
+        bannerLink.href = "https://hungyengenzso.github.io/vi/vietnam";
+        bannerActive = 2;
+      } else {
+        banner2.classList.remove('active');
+        banner1.classList.add('active');
+        bannerLink.href = "https://hungyengenzso.github.io/dangbai/post.html";
+        bannerActive = 1;
+      }
+    }, 5000);
+
+    // Responsive menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('nav ul');
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+
+    // Show/hide search bar
+    const searchIcon = document.getElementById('search-icon');
+    const searchBox = document.getElementById('search-box');
+    searchIcon.addEventListener('click', () => {
+      if (searchBox.style.display === 'block') {
+        searchBox.style.display = 'none';
+      } else {
+        searchBox.style.display = 'block';
+      }
+    });
+
+    // Menu data for suggestions
+    const searchInput = document.getElementById('search');
+    const suggestionsBox = document.getElementById('suggestions');
+
+    const menuItems = [
+      { name: "Home", link: "https://hungyengenzso.github.io/en/home" },
+      { name: "Introduction", link: "https://hungyengenzso.github.io/en/gioithieu" },
+      { name: "Leaders", link: "https://hungyengenzso.github.io/en/lanhdao" },
+      { name: "Senior leaders of Hung Yen", link: "https://hungyengenzso.github.io/en/nhanvat" },
+      { name: "Economy", link: "https://hungyengenzso.github.io/en/kinhte" },
+      { name: "Tourism", link: "https://hungyengenzso.github.io/en/dulich" },
+      { name: "Heritage & History", link: "https://hungyengenzso.github.io/en/dsvls" },
+      { name: "Cuisine & Craft Villages", link: "https://hungyengenzso.github.io/en/atvln" },
+      { name: "MiniGame", link: "https://hungyengenzso.github.io/en/minigame" },
+      { name: "Music", link: "https://hungyengenzso.github.io/en/amnhac" },
+      { name: "Media Library", link: "https://hungyengenzso.github.io/en/thuvienmedia" },
+      { name: "Contact", link: "https://hungyengenzso.github.io/en/lienhe" },
+    ];
+
+    // Show suggestions when typing
+    searchInput.addEventListener('input', () => {
+      const keyword = searchInput.value.toLowerCase().trim();
+      suggestionsBox.innerHTML = '';
+      if (keyword === '') {
+        suggestionsBox.style.display = 'none';
+        return;
+      }
+      const filtered = menuItems.filter(item => item.name.toLowerCase().includes(keyword));
+      if (filtered.length === 0) {
+        suggestionsBox.style.display = 'none';
+        return;
+      }
+      filtered.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'suggestion-item';
+        div.textContent = item.name;
+        div.addEventListener('click', () => {
+          window.open(item.link, '_blank');
+        });
+        suggestionsBox.appendChild(div);
+      });
+      suggestionsBox.style.display = 'block';
+    });
+
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.search-box')) {
+        suggestionsBox.style.display = 'none';
+      }
+    });
+  </script>
+
+<script>
+    function sendHeight() {
+        const height = document.body.scrollHeight;
+        parent.postMessage({ iframeHeight: height }, "*");
+    }
+
+    // Send every 0.1s or when resizing
+    setInterval(sendHeight, 100);
+    window.addEventListener('resize', sendHeight);
+    window.addEventListener('load', sendHeight);
+
+  // Click VN flag -> open in new tab
+  document.querySelector('.flags img[alt="VN"]').addEventListener('click', () => {
+    window.open("https://hungyengenzso.github.io/vi/home", "_blank");
+  });
+
+  // Click EN flag -> open in new tab
+  document.querySelector('.flags img[alt="EN"]').addEventListener('click', () => {
+    window.open("https://hungyengenzso.github.io/en/home", "_blank");
+  });
+</script>
+
+</body>
+</html>

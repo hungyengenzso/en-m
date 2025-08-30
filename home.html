@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to New Hung Yen Province</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #d70202;
+            --light-yellow: #fff3b6;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding-top: 300px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* ==== BOX WITH IMAGE + CONTENT ==== */
+        .info-row {
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .info-row img {
+            width: 40%;
+            aspect-ratio: 16/7;
+            object-fit: cover;
+        }
+
+        .info-content {
+            background-color: var(--light-yellow);
+            padding: 15px;
+            flex: 1;
+        }
+
+        .info-content h3 {
+            color: var(--primary-red);
+            margin-top: 0;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--primary-red);
+            padding-bottom: 5px;
+        }
+
+        /* ====== REMAINING SECTIONS ====== */
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--light-yellow);
+            color: var(--primary-red);
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 30px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            position: relative;
+            font-size: 1.5rem;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-red);
+            margin: 10px auto;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1rem;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            flex: 0 1 calc(50% - 8px);
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .view-more {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .news-item {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-img {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-item:hover .news-img img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 12px;
+        }
+
+        .news-date {
+            color: var(--primary-red);
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .news-date i {
+            margin-right: 5px;
+        }
+
+        .news-title {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .about-image {
+            max-width: 800px;
+            margin: 15px auto;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .footer-content {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section h3 {
+            color: var(--light-yellow);
+            margin-top: 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--light-yellow);
+            padding-bottom: 8px;
+        }
+
+        .contact-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            margin-right: 8px;
+            color: var(--light-yellow);
+        }
+
+        .rating-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .rating-option {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .rating-option input {
+            margin-right: 5px;
+        }
+
+        .submit-btn {
+            background-color: white;
+            color: var(--primary-red);
+            border: none;
+            padding: 6px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--light-yellow);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 10px 0;
+            background-color: var(--primary-red);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--light-yellow);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .info-row {
+                flex-direction: column;
+            }
+
+            .info-row img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-item {
+                flex: 0 1 auto;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .footer-section {
+                flex: 0 0 100%;
+            }
+        }
+
+        /* Iframe layer */
+        .iframe-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 520px;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .iframe-layer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            pointer-events: auto;
+        }
+        
+        /* Education section from code 2 */
+        .education-section {
+            background-color: #f0f8ff;
+            padding: 40px 0;
+        }
+        
+        .education-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .education-content h2 {
+            color: var(--primary-red);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .education-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top iframe layer -->
+    <div class="iframe-layer">
+        <iframe src="https://hungyengenzso.github.io/en/top"></iframe>
+    </div>
+
+<script>
+function updatePadding() {
+  const screenWidth = window.innerWidth; 
+  const padding = screenWidth * 0.2; 
+  document.body.style.paddingTop = 100 + padding + "px";
+}
+window.addEventListener("load", updatePadding);
+window.addEventListener("resize", updatePadding);
+</script>
+
+    <!-- INTRODUCTION -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" style="font-family: 'Playfair Display', serif !important; font-size: 40px"><i class="fas fa-book-open"></i> HUNG YEN - BEAUTY AND CULTURE CONVERGE</h2>
+            <p class="intro-text">New Hung Yen province was formed after merging with Thai Binh province, creating a vast area with great potential for economic, cultural and tourism development.</p>
+
+            <!-- Geographical location -->
+            <div class="info-row">
+                <img src="https://bvhttdl.mediacdn.vn/291773308735864832/2024/7/10/71478quanthekhudothivinhomesoceanparkvangiangdiemdenmoicuadulichhungyen17081009-1720576595779-1720576597601122730186.jpeg" alt="Geographical location">
+                <div class="info-content">
+                    <h3>Geographical Location</h3>
+                    <p>Hung Yen province is located in the center of the Red River Delta, belonging to the key economic region of the North, playing a connecting role between the capital Hanoi and the eastern coastal provinces. This geographical location is not only favorable for economic, cultural and social exchanges but also an important hub in the regional road and waterway transportation system.</p>
+                </div>
+            </div>
+    <section id="video">
+        <div class="container">
+            <div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OPDwUnirsRw?si=XB6xgSRfednpFNLb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            </div>
+        </div>
+        <p class="intro-text">Produced by: Bích Ngọc 11A3 - Trưng Vương High School</p>
+    </section>
+            <!-- Cultural heritage -->
+            <div class="info-row">
+                <img src="https://bcp.cdnchinhphu.vn/334894974524682240/2024/6/10/hy-17180215364151096761394.jpg" alt="Cultural heritage">
+                <div class="info-content">
+                    <h3>Cultural Heritage</h3>
+                    <p>Hung Yen is a land rich in cultural traditions with many historical, architectural and religious relics preserved over many centuries. The province has hundreds of communal houses, pagodas, temples and shrines with artistic and spiritual values, notably Pho Hien - a famous relic complex that was once a bustling trading center of the Northern Delta.</p>
+                </div>
+            </div>
+
+            <!-- Special cuisine -->
+            <div class="info-row">
+                <img src="https://static.vinwonders.com/production/hung-yen-o-dau-banner.jpg" alt="Special cuisine">
+                <div class="info-content">
+                    <h3>Special Cuisine</h3>
+                    <p>Hung Yen cuisine carries the flavors of the Northern Delta, combining sophistication in preparation with fresh ingredients from the fertile countryside. The most prominent is Hung Yen longan - a famous specialty nationwide, along with many rustic dishes such as Phu Thi rolled rice pancakes, eel noodle soup, braised mackerel with soybean paste or Dong Tao chicken with firm meat and special flavor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-camera"></i> IMAGES OF NEW HUNG YEN</h2>
+            <p class="intro-text">Beautiful images of people, landscapes and life in New Hung Yen province</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://scontent.iocvnpt.com/resources/portal/Images/TBH/ttxuctien/ck6_606095991.jpg" alt="New Hung Yen">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/V%C4%83n_mi%E1%BA%BFu_X%C3%ADch_%C4%90%E1%BA%B1ng_02.JPG/1200px-V%C4%83n_mi%E1%BA%BFu_X%C3%ADch_%C4%90%E1%BA%B1ng_02.JPG" alt="Xich Dang Temple of Literature">
+                </div>
+            </div>
+            
+            <div class="view-more">
+                <a href="https://hungyengenzso.github.io/en/anh" class="btn" target="_blank"><i class="fas fa-images"></i> View more images</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-video"></i> INTRODUCTION VIDEO</h2>
+            <p class="intro-text">Vibrant footage of New Hung Yen province after the merger</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/qZ2sHbZtCIo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tyi9pCDXaGQ?si=pExcT8gPrmdZLi6M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+<div class="about-image">
+                <img src="https://i.ibb.co/sdC0vGhb/Purple-Doodle-Mind-Map-A4-Document.png" alt="New Hung Yen diagram">
+            </div>
+    <!-- EDUCATION -->
+    <section id="education" class="education-section">
+        <div class="education-content">
+            <h2><i class="fas fa-graduation-cap"></i> TRUNG VUONG HIGH SCHOOL STUDENTS LEARNING AND INTEGRATING IN THE DIGITAL ERA</h2>
+            <p>In the context of the strong Industrial Revolution 4.0, digital transformation is not only a trend but has become an essential requirement for all fields, especially education. Recognizing this, Trung Vuong High School has been actively implementing many innovations in teaching and learning methods, helping students actively adapt, create and develop comprehensively in the digital era.</p>
+            <p>At Trung Vuong, students have access to many advanced technological tools and platforms in learning such as artificial intelligence (AI) applications in foreign language practice, online learning software, STEM activities integrating interdisciplinary subjects or experiencing creative projects with high practical application. Thereby, students not only develop academic competence but also form digital skills, critical thinking, teamwork and problem solving - the core competencies of global citizens in the 21st century.</p>
+            <p>In addition, the school also regularly organizes seminars, exchanges, academic competitions, creative startup playgrounds... to help students exchange, learn and practice international integration skills. Many Trung Vuong students have confidently participated in provincial and national forums and competitions on science and technology, achieving proud achievements.</p>
+            <p>The strong innovation in educational thinking and the progressive learning spirit of Trung Vuong High School students are vivid evidence of a generation of dynamic, courageous students, ready to master knowledge and technology, deeply and widely integrate with the world.</p>
+            <p style="text-align: center; font-weight: bold; font-style: italic;">Trung Vuong - where dreams take flight in the digital era!</p>
+        </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-newspaper"></i> HIGHLIGHTS</h2>
+            <p class="intro-text">Important information about New Hung Yen province</p>
+            
+            <div class="news-container">
+                <div class="news-item">
+                    <div class="news-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/V%C4%83n_mi%E1%BA%BFu_X%C3%ADch_%C4%90%E1%BA%B1ng_02.JPG/1200px-V%C4%83n_mi%E1%BA%BFu_X%C3%ADch_%C4%90%E1%BA%B1ng_02.JPG" alt="Introduction to Hung Yen">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> 15/06/2025</div>
+                        <h3 class="news-title">Introduction to Hung Yen - Former Thai Binh and New Hung Yen</h3>
+                        <p>Learn about the history, culture and changes after merging two provinces into one.</p>
+                        <a href="https://hungyengenzso.github.io/en/gioithieu" class="btn" style="padding: 6px 12px; font-size: 0.8rem;" target="_blank">Read more</a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-img">
+                        <img src="https://dnsg.1cdn.vn/2024/08/08/tbt-to-lam.jpg">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> 10/06/2025</div>
+                        <h3 class="news-title">Famous Figures in Hung Yen</h3>
+                        <p>Outstanding sons and daughters of Hung Yen who have contributed greatly to the country through different periods.</p>
+                        <a href="https://hungyengenzso.github.io/en/nhanvat" class="btn" style="padding: 6px 12px; font-size: 0.8rem;" target="_blank">Read more</a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-img">
+                        <img src="https://i.ibb.co/21pKMJhz/Banner-Kh-ngang-Tr-ch-d-n-Qu-c-kh-nh-Vi-t-Nam-Graffiti-V-ng-8.png" alt="Media library">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> 05/06/2025</div>
+                        <h3 class="news-title">Hung Yen Media Library</h3>
+                        <p>Collection of images, videos and valuable documents about Hung Yen province through different periods.</p>
+                        <a href="https://hungyengenzso.github.io/en/thuvienmedia" class="btn" style="padding: 6px 12px; font-size: 0.8rem;" target="_blank">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h3>CONTACT & FEEDBACK</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>Hotline: 0977893086</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: Dothoinn@gmail.com</span>
+                        </div>
+                        
+                        <div style="margin-top: 15px;">
+                            <div style="margin-bottom: 8px;">Rate our website:</div>
+                            <div class="rating-options">
+                                <div class="rating-option">
+                                    <input type="radio" id="good" name="rating" value="good" checked>
+                                    <label for="good">Good</label>
+                                </div>
+                                <div class="rating-option">
+                                    <input type="radio" id="average" name="rating" value="average">
+                                    <label for="average">Average</label>
+                                </div>
+                                <div class="rating-option">
+                                    <input type="radio" id="poor" name="rating" value="poor">
+                                    <label for="poor">Poor</label>
+                                </div>
+                            </div>
+                            <button type="button" class="submit-btn" onclick="submitFeedback()">Submit</button>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>NEW HUNG YEN</h3>
+                        <p>Official website introducing Hung Yen province after merging with Thai Binh</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 Copyright belongs to Trung Vuong High School
+        </div>
+    </footer>
+    
+    <script>
+        function submitFeedback() {
+            const rating = document.querySelector('input[name="rating"]:checked').value;
+            alert(`Thank you for rating our website as "${getRatingText(rating)}"!`);
+            return false;
+        }
+        
+        function getRatingText(value) {
+            switch(value) {
+                case 'good': return 'Good';
+                case 'average': return 'Average';
+                case 'poor': return 'Poor';
+                default: return '';
+            }
+        }
+    </script>
+</body>
+</html>
