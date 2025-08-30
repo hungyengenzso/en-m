@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hung Yen ~ GENZ</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto';
+      background: #fff3b6; /* light yellow */
+      color: #111;
+    }
+
+    /* Search bar + header */
+    .top {
+      padding: 20px;
+      background: #d70e0b; /* main red */
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+      color: white;
+    }
+    .search-container {
+      position: relative;
+      margin: 0 10px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 10px 10px;
+      font-size: 16px;
+      font-weight: bold;
+      backdrop-filter: blur(5px);
+      cursor: pointer;
+    }
+    .search-bar i {
+      margin-right: 10px;
+    }
+    .search-input {
+      background: transparent;
+      border: none;
+      color: white;
+      width: 100%;
+      font-family: 'Roboto';
+      font-size: 16px;
+      outline: none;
+    }
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Search results */
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 12px;
+      margin-top: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+    }
+    .search-result-item {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: #333;
+    }
+    .search-result-item:hover {
+      background-color: #f5f5f5;
+    }
+    .search-result-item i {
+      margin-right: 10px;
+      color: #d70e0b;
+    }
+    .no-results {
+      padding: 12px 15px;
+      color: #777;
+      text-align: center;
+    }
+
+    /* Banner */
+    .hero {
+      margin: 10px 10px 0;
+      background: #fff3b6; 
+      border-radius: 20px;
+      text-align: center;
+      padding: 10px 10px;
+      color: #d70e0b;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #d70e0b;
+      color: #fff3b6;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 35px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      letter-spacing: 0px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    /* Content */
+    .content {
+      padding: 20px 30px;
+    }
+    
+    /* Section header with title and flags */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #d70e0b;
+      margin: 0;
+    }
+    
+    .language-flags {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .flag {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    
+    .flag:hover {
+      transform: scale(1.1);
+    }
+    
+    .flag img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Tools grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+    .tool {
+      text-align: center;
+    }
+    .icon-tile {
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      color: #fff3b6;
+      margin: 0 auto 10px;
+      background: #d70e0b;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .tool label {
+      font-weight: 700;
+      display: block;
+      color: #d70e0b;
+    }
+    .tool small {
+      display: block;
+      color: #555;
+      font-size: 10px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    a:active .icon-tile { transform: scale(.96); }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="search-container">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" class="search-input" placeholder="Search Hung Yen GENZ">
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="hero">
+      <div class="badge">HUNG YEN GENZ</div>
+      <h1>DIGITAL CONNECTION, DIGITAL CREATION</h1>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="section-header">
+      <div class="section-title">Explore</div>
+      <div class="language-flags">
+        <div class="flag" title="Vietnamese">
+          <img src="https://hungyengenzso.github.io/en-m/vn.png" alt="VN">
+        </div>
+        <div class="flag" title="English">
+          <img src="https://hungyengenzso.github.io/en-m/en.png" alt="EN">
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid">
+      <!-- Items from Code 2 -->
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/home" target="_blank">
+          <div class="icon-tile"><i class="fas fa-home"></i></div>
+          <label>Home</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/gioithieu" target="_blank">
+          <div class="icon-tile"><i class="fas fa-info-circle"></i></div>
+          <label>Introduction</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/nhanvat" target="_blank">
+          <div class="icon-tile"><i class="fas fa-users"></i></div>
+          <label>Senior Leaders</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/kinhte" target="_blank">
+          <div class="icon-tile"><i class="fas fa-chart-line"></i></div>
+          <label>Economy</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/dulich" target="_blank">
+          <div class="icon-tile"><i class="fas fa-map-marked-alt"></i></div>
+          <label>Tourism</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/dsvls" target="_blank">
+          <div class="icon-tile"><i class="fas fa-landmark"></i></div>
+          <label>Heritage & History</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/atvln" target="_blank">
+          <div class="icon-tile"><i class="fas fa-utensils"></i></div>
+          <label>Cuisine & Craft Villages</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/minigame" target="_blank">
+          <div class="icon-tile"><i class="fas fa-gamepad"></i></div>
+          <label>MiniGame</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/amnhac" target="_blank">
+          <div class="icon-tile"><i class="fas fa-music"></i></div>
+          <label>Music</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/thuvienmedia" target="_blank">
+          <div class="icon-tile"><i class="fas fa-photo-video"></i></div>
+          <label>Media Library</label>
+        </a>
+      </div>
+      
+      <div class="tool">
+        <a href="https://hungyengenzso.github.io/en-m/lienhe" target="_blank">
+          <div class="icon-tile"><i class="fas fa-envelope"></i></div>
+          <label>Contact</label>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Search data - items in the Explore section
+    const searchData = [
+      { 
+        name: "Home", 
+        keywords: ["home", "trang chủ", "trangchu", "main"], 
+        url: "https://hungyengenzso.github.io/en-m/home",
+        icon: "fas fa-home"
+      },
+      { 
+        name: "Introduction", 
+        keywords: ["introduction", "gioi thieu", "about", "information", "giới thiệu"], 
+        url: "https://hungyengenzso.github.io/en-m/gioithieu",
+        icon: "fas fa-info-circle"
+      },
+      { 
+        name: "Senior Leaders", 
+        keywords: ["leaders", "lanh dao", "leader", "senior", "cap cao", "personnel", "nhân vật", "nhan vat"], 
+        url: "https://hungyengenzso.github.io/en-m/nhanvat",
+        icon: "fas fa-users"
+      },
+      { 
+        name: "Economy", 
+        keywords: ["economy", "kinh te", "economic", "kinh tế"], 
+        url: "https://hungyengenzso.github.io/en-m/kinhte",
+        icon: "fas fa-chart-line"
+      },
+      { 
+        name: "Tourism", 
+        keywords: ["tourism", "du lich", "travel", "tour", "destination", "địa điểm", "dia diem", "du lịch"], 
+        url: "https://hungyengenzso.github.io/en-m/dulich",
+        icon: "fas fa-map-marked-alt"
+      },
+      { 
+        name: "Heritage & History", 
+        keywords: ["heritage", "di san", "history", "lịch sử", "lich su", "di sản"], 
+        url: "https://hungyengenzso.github.io/en-m/dsvls",
+        icon: "fas fa-landmark"
+      },
+      { 
+        name: "Cuisine & Craft Villages", 
+        keywords: ["cuisine", "am thuc", "food", "craft villages", "lang nghe", "ẩm thực", "làng nghề"], 
+        url: "https://hungyengenzso.github.io/en-m/atvln",
+        icon: "fas fa-utensils"
+      },
+      { 
+        name: "MiniGame", 
+        keywords: ["minigame", "game", "play", "trò chơi", "tro choi", "entertainment", "giải trí", "giai tri"], 
+        url: "https://hungyengenzso.github.io/en-m/minigame",
+        icon: "fas fa-gamepad"
+      },
+      { 
+        name: "Music", 
+        keywords: ["music", "am nhac", "song", "bài hát", "bai hat", "âm nhạc"], 
+        url: "https://hungyengenzso.github.io/en-m/amnhac",
+        icon: "fas fa-music"
+      },
+      { 
+        name: "Media Library", 
+        keywords: ["media", "thu vien", "library", "images", "hinh anh", "video", "photo", "thư viện", "hình ảnh"], 
+        url: "https://hungyengenzso.github.io/en-m/thuvienmedia",
+        icon: "fas fa-photo-video"
+      },
+      { 
+        name: "Contact", 
+        keywords: ["contact", "lien he", "feedback", "góp ý", "gop y", "liên hệ", "phan hoi", "phản hồi"], 
+        url: "https://hungyengenzso.github.io/en-m/lienhe",
+        icon: "fas fa-envelope"
+      }
+    ];
+
+    // Handle language switching
+    document.querySelector('.flag img[alt="VN"]').closest('.flag').addEventListener('click', () => {
+      window.open("https://hungyengenzso.github.io/vi-m/", "_blank");
+    });
+
+    document.querySelector('.flag img[alt="EN"]').closest('.flag').addEventListener('click', () => {
+      window.open("https://hungyengenzso.github.io/en-m/", "_blank");
+    });
+
+    // Handle search functionality
+    const searchInput = document.querySelector('.search-input');
+    const searchResults = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      
+      if (query.length === 0) {
+        searchResults.style.display = 'none';
+        return;
+      }
+      
+      // Find matching items
+      const results = searchData.filter(item => {
+        // Check name
+        if (item.name.toLowerCase().includes(query)) return true;
+        
+        // Check keywords
+        return item.keywords.some(keyword => keyword.includes(query));
+      });
+      
+      // Display results
+      displayResults(results);
+    });
+
+    searchInput.addEventListener('focus', function() {
+      if (this.value.trim().length > 0) {
+        searchResults.style.display = 'block';
+      }
+    });
+
+    // Hide search results when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = 'none';
+      }
+    });
+
+    function displayResults(results) {
+      if (results.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">No matching results found</div>';
+        searchResults.style.display = 'block';
+        return;
+      }
+      
+      searchResults.innerHTML = '';
+      results.forEach(item => {
+        const resultElement = document.createElement('div');
+        resultElement.className = 'search-result-item';
+        resultElement.innerHTML = `
+          <i class="${item.icon}"></i>
+          <span>${item.name}</span>
+        `;
+        
+        resultElement.addEventListener('click', () => {
+          window.open(item.url, '_blank');
+          searchResults.style.display = 'none';
+          searchInput.value = '';
+        });
+        
+        searchResults.appendChild(resultElement);
+      });
+      
+      searchResults.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
